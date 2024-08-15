@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import './App.css';
-import Box from "./component/Box";
+import './AppFunctionRock.css';
+import Box from "./component/BoxFunctionRock";
 
 // 1. 박스 2개(타이틀, 사진, 결과값) - 컴포넌트로 생성
 // 2. 가위, 바위, 보 버튼 
@@ -24,7 +24,7 @@ const choice = {
   }
 }
 
-function App() {
+function AppFunctionRock() {
 
   const [userSelect, setUserSelect] = useState(null);
   const [computerSelect, setComputerSelect] = useState(null);
@@ -83,4 +83,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppFunctionRock;
