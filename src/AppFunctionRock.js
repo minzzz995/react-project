@@ -1,4 +1,5 @@
-import { useState } from 'react';
+// useEffect : function life cycle
+import { useState, useEffect } from 'react';
 import './AppFunctionRock.css';
 import Box from "./component/BoxFunctionRock";
 
@@ -68,8 +69,22 @@ function AppFunctionRock() {
     return choice[final];
   }
 
+  // useEffect(componentDidMount 대체(API호출작업)) : 매개변수를 2개 받음(콜백 함수, array배열)
+  useEffect(()=>{
+    console.log("useEffect1")
+  },[])
+
+  // array안에 값이 들어가면 componentDidUpdate 대체(배열안에 state값을 넣으면 react가 주시)
+  // 배열 안에 들어간 값 중 하나라도 값이 변하면 useEffect가 호출이 됌
+  // 두 개가 동시에 바뀌어도 2번 실행 X / 1번만 실행
+  // 아니면 분리해서 따로따로 useEffect함수를 만들어도 됌
+  useEffect(()=>{
+    console.log("useEffect2", userSelect, computerSelect)
+  },[userSelect, computerSelect])
+
   return (
     <div className="container">
+      {console.log("render")}
       <div className='main'>
         <Box title="You" item={userSelect} result={userResult} />
         <Box title="Computer" item={computerSelect} result={computerResult} />
